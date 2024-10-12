@@ -26,8 +26,10 @@ RUN apt install grub-common grub2-common grub-pc-bin grub-efi-ia32-bin grub-efi-
 RUN apt install gxmessage consolekit -y
 
 # blivet-gui
+RUN apt install curl gpg -y
 RUN echo 'deb http://download.opensuse.org/repositories/home:/vtrefny/Debian_Testing/ /' | tee /etc/apt/sources.list.d/home:vtrefny.list
 RUN curl -fsSL https://download.opensuse.org/repositories/home:vtrefny/Debian_Testing/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/home_vtrefny.gpg > /dev/null
+RUN apt remove curl gpg -y
 RUN apt update
 RUN apt install blivet-gui -y
 
