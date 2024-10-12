@@ -25,8 +25,11 @@ RUN apt install grub-common grub2-common grub-pc-bin grub-efi-ia32-bin grub-efi-
 # As an extra, install gxmessage and consolekit for shutdown
 RUN apt install gxmessage consolekit -y
 
-# Gparted
-RUN apt install gparted -y
+# blivet-gui
+RUN echo 'deb http://download.opensuse.org/repositories/home:/vtrefny/Debian_Testing/ /' | tee /etc/apt/sources.list.d/home:vtrefny.list
+RUN curl -fsSL https://download.opensuse.org/repositories/home:vtrefny/Debian_Testing/Release.key | gpg --dearmor | tee /etc/apt/trusted.gpg.d/home_vtrefny.gpg > /dev/null
+RUN apt update
+RUN apt install blivet-gui -y
 
 # Calamares
 RUN apt install calamares calamares-extensions calamares-extensions-data -y
