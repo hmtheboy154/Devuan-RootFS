@@ -3,12 +3,12 @@ name: Generate install.sfs & initrd_lib.tar.gz from Docker Image
 on:
   push:
     branches:
-      - main
+      - devuan_ceres
     tags:
       - v*
   pull_request:
     branches:
-      - main
+      - devuan_ceres
 
 jobs:
   build:
