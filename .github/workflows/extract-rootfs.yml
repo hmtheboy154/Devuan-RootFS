@@ -125,4 +125,4 @@ jobs:
           repo_token: "${{ secrets.RELEASE_TOKEN }}"
           prerelease: false
           files: |
-            ${{ steps.download-rootfs.outputs.download-path }}/*.tar.gz
+            ${{ steps.download-rootfs.outputs.download-path }}/*
